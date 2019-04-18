@@ -11,7 +11,9 @@
 <hr />
 
 <ul>
-    <li th:each="category : ${categories}" th:text="${category.name}"></li>
+    <li th:each="category : ${categories}" th:text="${category.name}">
+        <a th:href="" th:text="inline"></a>
+    </li>
 </ul>
 
 <a href="/category/add">Add Category</a>

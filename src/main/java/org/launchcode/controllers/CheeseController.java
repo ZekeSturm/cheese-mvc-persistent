@@ -79,23 +79,12 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "category/{id}", method = RequestMethod.GET)
-    public String displayCheeseByCategory(@PathVariable("id") String id, Model model) {
+    public String displayCheeseByCategory(@PathVariable("id") int id, Model model) {
 
         List<Cheese> cheeseByCat = new ArrayList<>();
 
-        int idInt;
-
-        try {
-            idInt = Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            model.addAttribute("title","My Cheeses");
-            model.addAttribute("cheeses", cheeseByCat);
-
-            return "/cheese/index";
-        }
-
         for (Cheese che : cheeseDao.findAll()) {
-            if (che.getCategory().getId() == idInt) {
+            if (che.getCategory().getId() == id) {
                 cheeseByCat.add(che);
             }
         }
