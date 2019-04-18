@@ -11,8 +11,8 @@
 <hr />
 
 <ul>
-    <li th:each="category : ${categories}" th:text="${category.name}">
-        <a th:href="" th:text="inline"></a>
+    <li th:each="category : ${categories}">
+        <a th:href="@{/cheese/category/{id}(id=${category.id})}" th:inline="text">[[${category.name}]]</a>
     </li>
 </ul>
 
